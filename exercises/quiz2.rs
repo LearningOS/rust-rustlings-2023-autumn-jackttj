@@ -20,7 +20,7 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
+
 
 pub enum Command {
     Uppercase,
@@ -41,11 +41,7 @@ mod my_module {
                 Command::Uppercase => output.push(string.to_uppercase()),
                 Command::Trim => output.push(string.trim().to_string()),
                 Command::Append(l) =>{
-                    let mut result = String::from(string);
-                    for _ in  0..l{
-                        result.push_str("bar");
-                    }
-                    output.push(result);
+                    output.push(format!("{}{}", string, "bar".repeat(*l)));
                 },
             }
         }
